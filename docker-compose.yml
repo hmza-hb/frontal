@@ -1,0 +1,25 @@
+# Local Postgres for the platform. `make up` starts it, `make migrate`
+# applies every module's migrations.
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: upvista-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: leads
+      # Deterministic collation keeps trigram indexes stable across machines.
+      POSTGRES_INITDB_ARGS: "--locale=C --encoding=UTF8"
+    ports:
+      - "5432:5432"
+    volumes:
+      - leads-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d leads"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  leads-pgdata:
