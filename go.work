@@ -1,0 +1,19 @@
+go 1.27.0
+
+// The workspace wires the modules together for local development only.
+// Each module is a self-contained Go module with no workspace-specific
+// `replace` directives, so any of them can be copied into its own repository
+// and built independently. See ARCHITECTURE.md.
+use (
+	./crawler
+	./discovery
+	./entity-resolution
+	./enrichment
+	./extractor
+	./knowledge-graph
+	./lead-engine
+	./personalization
+	./platform
+	./qualification
+	./research
+)
