@@ -1,0 +1,11 @@
+{
+  "name": "frontal-e2e",
+  "private": true,
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "serve": "^14.2.5"
+  }
+}
