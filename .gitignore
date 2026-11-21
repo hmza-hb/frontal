@@ -1,0 +1,16 @@
+node_modules/
+.expo/
+dist/
+web-build/
+.playwright/
+playwright-report/
+test-results/
+blob-report/
+coverage/
+*.tsbuildinfo
+.tools/
+.supabase/
+.env
+.env.*
+!.env.example
+.DS_Store
