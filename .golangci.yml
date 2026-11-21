@@ -1,0 +1,16 @@
+version: "2"
+linters:
+  default: none
+  enable:
+    - errcheck
+    - errorlint
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+formatters:
+  enable:
+    - gofmt
+    - goimports
+run:
+  tests: true
