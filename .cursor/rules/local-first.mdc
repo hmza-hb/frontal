@@ -1,0 +1,15 @@
+---
+description: Local data, intelligence modes, and cloud consent
+alwaysApply: true
+---
+
+# Local-first product rules
+
+- The device is the system of record for conversations, memory, attachments, agent history, and settings.
+- An account does not upload chats. Signing in attaches local guest threads to that account and leaves them on the device.
+- Guest mode is the full local app. The chat nav shows Login. Login unlocks cloud sync, Histeeria, and frontier models.
+- Auto is the default intelligence mode. Best quality uses frontier models. Private / Offline stays on the device even when the network is up.
+- Private mode never sends a turn to the cloud. A turn already answered on device is not resent. Auto may use a frontier model on a later turn only when the device is online and cloud-inference consent is already on.
+- Cloud inference sends the context package for that turn only. It is a separate consent from sync. Sync off means the archive is not backed up.
+- Do not queue an offline prompt for a silent cloud send. If no local model is prepared, explain the limit.
+- Users do not pick GGUF files, parameter sizes, quantization, or GPU settings.

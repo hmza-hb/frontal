@@ -1,0 +1,19 @@
+---
+description: Feature lifecycle and required pull request contents
+alwaysApply: true
+---
+
+# Delivery lifecycle
+
+Every feature follows this order: Problem, Requirements, Technical design, GitHub issue, Implementation branch, Tests, Pull request, Review, Merge, Release.
+
+A pull request description includes:
+
+- Problem being solved
+- Technical implementation
+- Architectural implications
+- Testing performed
+- Screenshots or recordings when the UI changes
+- Breaking changes, or an explicit statement that there are none
+
+The agent hands that description over with the bash. The maintainer opens the pull request.

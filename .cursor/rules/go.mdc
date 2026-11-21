@@ -1,0 +1,14 @@
+---
+description: Go standards for the optional API
+globs: services/api/**/*.go
+alwaysApply: false
+---
+
+# Go
+
+- Small packages. The handler does not own chat or model routing.
+- Return a concrete error. Do not use `any` or `interface{}` when a named type fits.
+- No comments. Names and test names carry the meaning.
+- Table tests cover status codes and payloads.
+- `gofmt` and `golangci-lint` are clean before handover.
+- This service is not required for local chat. Do not put a local-only feature behind it.

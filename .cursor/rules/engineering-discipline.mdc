@@ -1,0 +1,19 @@
+---
+description: Core engineering discipline for every Frontal change
+alwaysApply: true
+---
+
+# Engineering discipline
+
+- One milestone per branch. Do not start the next milestone inside the current one.
+- Names state what the function returns or what the type contains.
+- No comments in source, tests, or config. Put the explanation in the PR, an ADR, or a doc.
+- No TypeScript `any`. No Go `any` or `interface{}` when a concrete type or a generic can say it.
+- Formatting, lint, and static analysis pass before a slice is handed over.
+- Do not run `git commit`, `git push`, or `gh pr create`. End the slice with the files changed, a PR description, and bash the maintainer runs.
+
+```typescript
+function healthStatus(): "ok" {
+  return "ok";
+}
+```

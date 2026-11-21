@@ -1,0 +1,12 @@
+---
+description: Unit, integration, and e2e tests required with behavior changes
+alwaysApply: true
+---
+
+# Testing
+
+- A behavior change ships a unit test.
+- A boundary crossing ships an integration test against that boundary.
+- A user-visible flow change ships an end-to-end test. Web uses Playwright. A native device run is required when the flow cannot be proven on web.
+- Do not skip or delete a test to get a change merged. Fix the test or narrow the change.
+- Temporary databases and fake providers are the default. Tests do not call a paid model or a production project.

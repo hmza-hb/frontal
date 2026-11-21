@@ -1,0 +1,13 @@
+---
+description: Versioned HTTP contracts for the optional API
+globs: "{contracts/openapi/**,services/api/**}"
+alwaysApply: false
+---
+
+# HTTP contracts
+
+- Routes live under `/v1`.
+- Update `contracts/openapi/v1.yaml` in the same change as the handler.
+- Every response field is named in the contract. `additionalProperties` is false unless an ADR says otherwise.
+- A contract test loads the OpenAPI document and asserts the handler payload matches it.
+- The Go API is not on the path of a device-to-provider model call.

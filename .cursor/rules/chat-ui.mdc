@@ -1,0 +1,17 @@
+---
+description: Dark chat visual language, applied when chat UI work starts
+globs: apps/mobile/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Chat visual language
+
+Apply these tokens when building the chat screen. The M0 placeholder does not imitate the chat.
+
+- Background is near-black.
+- Assistant bubbles are dark gray, rounded, and left aligned.
+- User bubbles are a lighter gray pill, right aligned.
+- The composer is a pill fixed to the bottom.
+- Send is a circular white control on the right of the composer.
+- The header carries the conversation title. The product name is Frontal.
+- Guest chat keeps a Login control in the nav.

@@ -1,0 +1,23 @@
+---
+description: TypeScript standards for the Expo app
+globs: apps/mobile/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# TypeScript
+
+- Strict TypeScript. Exported functions and props have explicit types.
+- No `any`, no `as any`, and no non-null assertion used to hide a missing check.
+- No comments. The name carries the meaning.
+- Colocate `*.test.ts` or `*.test.tsx` with the module it covers.
+- Keep components free of network calls. Pass data in and events out.
+
+```tsx
+type PlaceholderProps = {
+  title: string;
+};
+
+export function Placeholder({ title }: PlaceholderProps) {
+  return <Text>{title}</Text>;
+}
+```

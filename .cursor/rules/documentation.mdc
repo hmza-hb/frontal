@@ -1,0 +1,18 @@
+---
+description: Keep engineering docs, ADRs, and the changelog current
+alwaysApply: true
+---
+
+# Documentation
+
+Update the living doc in the same change that changes the decision:
+
+- `docs/SYSTEM_DESIGN.md`
+- `docs/ARCHITECTURE.md`
+- `docs/DATA_FLOW.md`
+- `docs/SECURITY_MODEL.md`
+- `docs/DEPLOYMENT.md`
+- `docs/CONTRIBUTING.md`
+- `docs/MILESTONES.md` when the sequence changes
+
+A material decision gets an ADR in `docs/adr/` with context, decision, alternatives, and consequences. Record tradeoffs for a release in `CHANGELOG.md`.
