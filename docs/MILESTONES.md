@@ -1,10 +1,21 @@
 # Milestones
 
-Each milestone is one issue, one branch, tests, and a pull request. A later milestone does not start inside an earlier one. M1 starts after M0 is merged.
+Each milestone is one issue and a merge sequence. A milestone may be one pull request or several that each land on the default branch in order. A later milestone does not start inside an earlier one.
 
 ## M0 — Foundation
 
-Engineering discipline, living docs, ADRs, CI, a Go health check, and a web smoke test. No product screens. This is the current milestone.
+Engineering discipline, living docs, ADRs, CI, a Go health check, and a web smoke test. No product screens. M0 is complete only after every pull request below is merged. Each pull request branches from the default branch after the previous one is merged.
+
+| Order | Branch | Pull request scope |
+| --- | --- | --- |
+| 1 | `m0-discipline` | `.cursor/rules/`, `AGENTS.md`, GitHub issue and pull request templates |
+| 2 | `m0-docs` | `docs/`, `CHANGELOG.md`, `README.md` |
+| 3 | `m0-api-contract` | `contracts/openapi/`, `services/api/`, `.golangci.yml` |
+| 4 | `m0-mobile` | `apps/mobile/` |
+| 5 | `m0-cloud-skeleton` | `supabase/`, `scripts/` |
+| 6 | `m0-ci` | `e2e/`, `.github/workflows/ci.yml`, root `.gitignore` |
+
+M1 starts after pull request 6 is merged.
 
 ## M1 — Splash
 
