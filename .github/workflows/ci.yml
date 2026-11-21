@@ -48,13 +48,6 @@ jobs:
         with:
           node-version: 22
       - run: node --test scripts/migrations.test.mjs
-      - name: Reset the local database when Docker is available
-        run: |
-          if ! docker info >/dev/null 2>&1; then
-            echo "Docker is unavailable. Run supabase db reset locally. See docs/DEPLOYMENT.md."
-            exit 0
-          fi
-          npx --yes supabase db reset
 
   e2e:
     runs-on: ubuntu-latest

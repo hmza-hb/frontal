@@ -59,11 +59,13 @@ When Docker is available and the Supabase CLI is installed:
 supabase db reset
 ```
 
-Run that from the repository root. It applies the forward-only migrations to a local Postgres. There is nothing to apply yet. If Docker is not available, the filename check above is the local gate, and `supabase db reset` waits until Docker is installed. CI does the same: it runs the filename test always, and runs `supabase db reset` only when Docker answers.
+Run that from the repository root after `supabase start`. It applies the forward-only migrations to a local Postgres. There is nothing to apply yet. If Docker is not available, the filename check above is the local gate.
+
+CI runs the migration filename test only. A job that applies SQL in Postgres starts once real migrations exist and the workflow can start the local Supabase stack reliably.
 
 ## CI
 
-`.github/workflows/ci.yml` runs the client lint, typecheck, and unit test; the Go test and `golangci-lint`; the OpenAPI contract test inside `go test`; the migration filename test; the conditional Supabase reset; and the Playwright smoke test against the exported web app.
+`.github/workflows/ci.yml` runs the client lint, typecheck, and unit test; the Go test and `golangci-lint`; the OpenAPI contract test inside `go test`; the migration filename test; and the Playwright smoke test against the exported web app.
 
 ## Not decided yet
 

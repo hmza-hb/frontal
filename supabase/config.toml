@@ -24,7 +24,7 @@ jwt_expiry = 3600
 enable_signup = true
 
 [auth.email]
-enable_signup = true
+enabled = true
 enable_confirmations = false
 
 [storage]
