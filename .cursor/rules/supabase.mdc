@@ -1,0 +1,13 @@
+---
+description: Versioned Supabase migrations for optional cloud storage
+globs: supabase/**/*
+alwaysApply: false
+---
+
+# Supabase
+
+- Schema changes are forward-only SQL files in `supabase/migrations`.
+- File names match `YYYYMMDDHHMMSS_short_name.sql`.
+- Do not edit schema in the dashboard and leave it out of a migration.
+- Personal rows store ciphertext. State the row level security policy in `docs/SECURITY_MODEL.md` when a table is added.
+- An empty migration directory is valid at this version. There are no product tables yet.
