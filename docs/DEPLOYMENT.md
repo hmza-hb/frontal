@@ -4,7 +4,7 @@ Status: local toolchain and CI. Production hosting is not decided.
 
 ## What runs today
 
-Local chat does not need `services/api`. The API is an optional process. Version 0.0.0 has no chat yet. The gates below prove the toolchain.
+Local chat does not need `services/api`. The API is an optional process. Version 0.0.0 has a launch screen and no chat yet. The gates below prove the toolchain.
 
 ## Client
 
@@ -41,7 +41,7 @@ npm install --prefix e2e
 npm test --prefix e2e
 ```
 
-Playwright serves `apps/mobile/dist` and asserts the placeholder renders the product name.
+Playwright serves `apps/mobile/dist` and asserts the launch sequence reaches the auth destination.
 
 ## Migration filenames
 
