@@ -1,14 +1,14 @@
 # Milestones
 
-Each milestone is one issue, one branch, tests, and a pull request. A later milestone does not start inside an earlier one. M1 starts after M0 is merged.
+Each milestone is one issue, one branch, tests, and a pull request. A later milestone does not start inside an earlier one. M2 starts after M1 is merged.
 
 ## M0 — Foundation
 
-Engineering discipline, living docs, ADRs, CI, a Go health check, and a web smoke test. No product screens. This is the current milestone.
+Engineering discipline, living docs, ADRs, CI, a Go health check, and a web smoke test. No product screens. Merged.
 
 ## M1 — Splash
 
-Launch screen, then hand off to auth. No account logic.
+Launch screen, then hand off to auth. No account logic. This is the current milestone.
 
 ## M2 — Login and guest
 

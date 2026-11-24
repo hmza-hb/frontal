@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Chat visual language
 
-Apply these tokens when building the chat screen. The M0 placeholder does not imitate the chat.
+Apply these tokens when building the chat screen. Launch and auth screens use the near-black background and do not imitate chat bubbles.
 
 - Background is near-black.
 - Assistant bubbles are dark gray, rounded, and left aligned.
