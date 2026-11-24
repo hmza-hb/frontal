@@ -5,7 +5,8 @@ alwaysApply: true
 
 # Engineering discipline
 
-- One milestone per branch. Do not start the next milestone inside the current one.
+- One milestone at a time. A milestone may be several pull requests. Do not start the next milestone inside the current one.
+- A pull request’s counted diff is at most 120 lines. See `pull-request-size.mdc`.
 - Names state what the function returns or what the type contains.
 - No comments in source, tests, or config. Put the explanation in the PR, an ADR, or a doc.
 - No TypeScript `any`. No Go `any` or `interface{}` when a concrete type or a generic can say it.

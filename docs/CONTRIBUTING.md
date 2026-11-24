@@ -17,13 +17,26 @@ Frontal is built one milestone at a time. The sequence is `docs/MILESTONES.md`. 
 
 ## Branch
 
-Use `m<number>-<short-topic>`, for example `m0-foundation`.
+Use `m<number>-<short-topic>`, for example `m1-splash`.
+
+Stage only the files that belong in that pull request. Do not use `git add -A` when a milestone is split. For `apps/mobile`, never run `git add apps/mobile`. Commit `apps/mobile/.gitignore` first, then run `scripts/stage-mobile.sh` and review `git status` before you commit.
 
 ## Tests
 
 Ship a unit test with the behavior. Ship an integration test when a request crosses a boundary. Ship a Playwright test when a user-visible web flow changes. Add a native device test when web cannot prove the flow.
 
 Run the gates in `docs/DEPLOYMENT.md` before handing a slice over.
+
+## Pull request size
+
+A pull request’s counted diff is at most 120 lines (insertions plus deletions against the merge base). Exclude `package-lock.json`, `go.sum`, and `dist/`. Tests and docs count. If a slice would exceed 120 lines, split it. Do not omit tests to fit.
+
+```bash
+git diff --numstat origin/main...HEAD \
+  ':(exclude)**/package-lock.json' \
+  ':(exclude)**/go.sum' \
+  ':(exclude)**/dist/**'
+```
 
 ## Pull request
 
@@ -45,14 +58,17 @@ An agent does not run `git commit`, `git push`, or `gh pr create`. It leaves:
 - Bash the maintainer pastes
 
 ```bash
-git checkout -b m0-foundation
-git add -A
+git checkout main
+git pull
+git checkout -b m1-splash
+./scripts/stage-mobile.sh
+git add docs e2e CHANGELOG.md README.md
+git status
 git commit -m "$(cat <<'EOF'
 Describe why this change exists.
 
 EOF
 )"
-git status
 ```
 
 Push and `gh pr create` stay a separate choice. Use the pull request body from the handover. Do not add `--no-verify`.

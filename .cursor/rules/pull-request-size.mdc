@@ -1,0 +1,21 @@
+---
+description: Pull requests stay within 120 counted lines
+alwaysApply: true
+---
+
+# Pull request size
+
+A pull request’s counted diff is at most **120 lines**. Count insertions plus deletions from the merge base:
+
+```bash
+git diff --numstat origin/main...HEAD \
+  ':(exclude)**/package-lock.json' \
+  ':(exclude)**/go.sum' \
+  ':(exclude)**/dist/**'
+```
+
+Sum column 1 and column 2. Lockfiles, `dist/`, and generated files do not count. Tests, config, rules, and docs do count.
+
+If code plus its tests would exceed 120, split the behavior. Do not drop the test. If code plus the living-doc update would exceed 120, ship the ADR first, then the code, then the remaining doc edits, all in the same milestone.
+
+One milestone may be several pull requests. Each branches from the default branch after the previous one in that milestone is merged.
