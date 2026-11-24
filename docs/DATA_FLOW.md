@@ -53,6 +53,10 @@ When the sync toggle is on, the client encrypts conversations, attachments, memo
 
 Cloud memory and evals use the memory port. The client sends personal memory only after a separate authorization. Sync and cloud inference do not imply it.
 
+## Launch
+
+Cold start shows the native splash, then the JS splash, then the auth destination. No credentials, tokens, or prompts leave the device. M2 is the first milestone that may contact Supabase Auth.
+
 ## Version 0.0.0
 
-The placeholder client renders locally and makes no request. `GET /v1/health` returns `{"status":"ok"}` and reads no user data.
+The client launch sequence renders locally and makes no request. `GET /v1/health` returns `{"status":"ok"}` and reads no user data.

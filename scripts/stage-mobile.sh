@@ -14,10 +14,9 @@ git add \
   "$mobile/tsconfig.json" \
   "$mobile/eslint.config.js" \
   "$mobile/eslint/no-comments.js" \
-  "$mobile/src/placeholder.ts" \
-  "$mobile/src/placeholder.test.ts" \
   "$mobile/AGENTS.md" \
-  "$mobile/assets"
+  "$mobile/assets" \
+  "$mobile/src"
 if git status --porcelain | rg -q 'node_modules|/dist/|\.expo'; then
   echo "Refusing to stage: node_modules, dist, or .expo is still staged." >&2
   exit 1

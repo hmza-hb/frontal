@@ -1,6 +1,6 @@
 # Architecture
 
-Status: target. Version 0.0.0 contains the directories below and no product behavior.
+Status: target. Version 0.0.0 contains the directories below. The client shows a launch screen, then an auth destination with no account actions.
 
 ## Repository
 
@@ -48,12 +48,18 @@ Model, memory, and storage are ports. Local memory is the default adapter. Histe
 
 `services/api` exposes versioned HTTP. Version 0.0.0 exposes `GET /v1/health` only. Supabase Postgres stores ciphertext for optional sync and holds account data when sign-in exists. Personal plaintext is not a cloud column.
 
+## Client launch
+
+The Expo root keeps a two-step launch sequence. Native splash stays up while JavaScript loads. The JS splash then holds for 800ms and hands off to an auth destination. That destination has no Google, email, or guest actions. M2 fills those in. There is no router yet. See [adr/0007-launch-sequence.md](adr/0007-launch-sequence.md).
+
 ## Current process
 
 ```mermaid
 flowchart TD
-  mobile[ExpoPlaceholder] --> reader[Person]
+  native[NativeSplash] --> splash[JsSplash]
+  splash --> auth[AuthDestination]
+  auth --> person[Person]
   health[GoHealth] --> probe[Operator]
 ```
 
-The placeholder renders the product name. The health route reports that the optional API process is up. Neither one stores or transmits personal data.
+The launch sequence stays on the device and makes no network call. The health route reports that the optional API process is up.
