@@ -17,6 +17,9 @@ git add \
   "$mobile/AGENTS.md" \
   "$mobile/assets" \
   "$mobile/src"
+if [[ -f "$mobile/.env.example" ]]; then
+  git add "$mobile/.env.example"
+fi
 if git status --porcelain | rg -q 'node_modules|/dist/|\.expo'; then
   echo "Refusing to stage: node_modules, dist, or .expo is still staged." >&2
   exit 1
