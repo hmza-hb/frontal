@@ -1,6 +1,6 @@
 # Milestones
 
-Each milestone is one issue, one branch, tests, and a pull request. A later milestone does not start inside an earlier one. M2 starts after M1 is merged.
+Each milestone is one issue, one branch, tests, and a pull request. A later milestone does not start inside an earlier one. M3 starts after M2 is merged.
 
 ## M0 — Foundation
 
@@ -8,11 +8,11 @@ Engineering discipline, living docs, ADRs, CI, a Go health check, and a web smok
 
 ## M1 — Splash
 
-Launch screen, then hand off to auth. No account logic. This is the current milestone.
+Launch screen, then hand off to auth. No account logic. Merged.
 
 ## M2 — Login and guest
 
-Google and email through Supabase Auth, plus a guest entry. Session restore. Both paths continue toward settings. The guest session is local only.
+Google and email through Supabase Auth, plus a guest entry. Session restore. Both paths continue toward settings. The guest session is local only. This is the current milestone.
 
 ## M3 — Settings
 

@@ -2,7 +2,7 @@
 
 Frontal is a local-first conversational and agentic app. The device holds the chats. Auto mode uses a frontier model after cloud-inference consent. Private mode stays on the device. Sync is a separate, optional backup.
 
-Version 0.0.0 is the foundation plus a launch screen. Cold start shows splash, then an auth destination. There is no login and no chat yet. Local mode does not need the API.
+Version 0.0.0 is the foundation plus splash, Google, email, or guest, then a settings destination. There is no chat yet. Local mode does not need the API.
 
 The milestone order is [docs/MILESTONES.md](docs/MILESTONES.md). Design and tradeoffs live in [docs](docs) and [docs/adr](docs/adr).
 

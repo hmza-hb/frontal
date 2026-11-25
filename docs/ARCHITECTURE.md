@@ -1,6 +1,6 @@
 # Architecture
 
-Status: target. Version 0.0.0 contains the directories below. The client shows a launch screen, then an auth destination with no account actions.
+Status: target. Version 0.0.0 contains the directories below. The client shows splash, then Google, email, or guest, then a settings destination.
 
 ## Repository
 
@@ -50,16 +50,21 @@ Model, memory, and storage are ports. Local memory is the default adapter. Histe
 
 ## Client launch
 
-The Expo root keeps a two-step launch sequence. Native splash stays up while JavaScript loads. The JS splash then holds for 800ms and hands off to an auth destination. That destination has no Google, email, or guest actions. M2 fills those in. There is no router yet. See [adr/0007-launch-sequence.md](adr/0007-launch-sequence.md).
+The Expo root keeps a launch enum: splash, auth, settings. Native splash stays up while JavaScript loads. The JS splash holds for 800ms, restores a session, then shows auth or settings. Guest never calls Supabase. Google and email use `AuthPort`, with a Supabase adapter when env is set. Settings has no toggles until M3. There is no router yet. See [adr/0007-launch-sequence.md](adr/0007-launch-sequence.md) and [adr/0008-auth-sessions.md](adr/0008-auth-sessions.md).
 
 ## Current process
 
 ```mermaid
 flowchart TD
   native[NativeSplash] --> splash[JsSplash]
-  splash --> auth[AuthDestination]
-  auth --> person[Person]
+  splash --> restore[RestoreSession]
+  restore --> auth[AuthScreen]
+  restore --> settings[SettingsDestination]
+  auth --> guest[GuestLocal]
+  auth --> cloud[SupabaseGoogleOrEmail]
+  guest --> settings
+  cloud --> settings
   health[GoHealth] --> probe[Operator]
 ```
 
-The launch sequence stays on the device and makes no network call. The health route reports that the optional API process is up.
+Guest stays on the device. Cloud sign-in is optional and does not upload threads. The health route reports that the optional API process is up.

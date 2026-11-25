@@ -36,4 +36,4 @@ Histeeria receives personal data only after its own authorization. Organization 
 
 ## Version 0.0.0
 
-`GET /v1/health` returns a fixed status and accepts no body. It has no authentication because it reveals no tenant data. The launch sequence has no network call and no local database. The auth destination does not collect credentials.
+`GET /v1/health` returns a fixed status and accepts no body. It has no authentication because it reveals no tenant data. The launch sequence has no local database. Guest continues without a network call. Google and email send credentials to Supabase Auth only. Signing in does not upload chats.
