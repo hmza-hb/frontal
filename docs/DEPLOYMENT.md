@@ -41,7 +41,9 @@ npm install --prefix e2e
 npm test --prefix e2e
 ```
 
-Playwright serves `apps/mobile/dist` and asserts the launch sequence reaches the auth destination.
+Playwright serves `apps/mobile/dist` and asserts splash reaches auth actions and guest reaches settings.
+
+Set `EXPO_PUBLIC_SUPABASE_URL` and `EXPO_PUBLIC_SUPABASE_ANON_KEY` in the mobile app env to enable Google and email. Without them, guest still works. See `apps/mobile/.env.example`.
 
 ## Migration filenames
 

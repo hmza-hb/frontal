@@ -2,10 +2,10 @@
 
 ## Unreleased
 
-M1 launch screen. No product release.
+M2 login and guest. No product release.
 
-- Cold start shows a near-black splash, then an auth destination with no account actions.
-- Tradeoff: auth is a destination, not a working login, so M1 stays one milestone and M2 owns Google, email, and guest.
+- Splash restores a session, then Google, email, or guest. Both paths continue to a settings destination with no toggles.
+- Tradeoff: without Supabase env, cloud sign-in errors and guest still works, so CI never calls a production project.
 
 ## 0.0.0
 

@@ -55,8 +55,8 @@ Cloud memory and evals use the memory port. The client sends personal memory onl
 
 ## Launch
 
-Cold start shows the native splash, then the JS splash, then the auth destination. No credentials, tokens, or prompts leave the device. M2 is the first milestone that may contact Supabase Auth.
+Cold start shows the native splash, then the JS splash, then restores a session. No session goes to auth. A guest or signed-in session goes to settings. Guest never leaves the device. Google and email contact Supabase Auth only after the person uses those actions.
 
 ## Version 0.0.0
 
-The client launch sequence renders locally and makes no request. `GET /v1/health` returns `{"status":"ok"}` and reads no user data.
+`GET /v1/health` returns `{"status":"ok"}` and reads no user data. Guest continues without a network call.

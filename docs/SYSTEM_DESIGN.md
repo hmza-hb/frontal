@@ -1,6 +1,6 @@
 # System design
 
-Status: target architecture. Version 0.0.0 shows a launch screen, then an auth destination, and a health check. It does not store chats or call a model.
+Status: target architecture. Version 0.0.0 shows splash, Google, email, or guest, then a settings destination. It does not store chats or call a model.
 
 ## Purpose
 
